@@ -1,0 +1,12 @@
+{
+  "myObject" : {
+    "myString1":"qwerty1",
+    "myString2":"qwerty2"
+  },
+  "mySecondObject" : {
+    "myNestedObject" : {
+      "myInt1":"123",
+      "myInt2":"456"
+    }
+  }
+}
