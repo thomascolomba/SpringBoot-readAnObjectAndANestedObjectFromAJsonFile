@@ -38,9 +38,12 @@ public static class MySecondObject {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;private Integer myInt1;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;private Integer myInt2;<br/>
 +all getters and setters<br/>
-<b>---MyMyObjectConverter.java and MyMySecondObjectConverter.java (they could be merged)<br/>
-final ObjectMapper mapper = new ObjectMapper();<br/>
-return mapper.convertValue(myObjectFromJson, ....class);<br/></b>
+---MyObjectConverterUtil.java<br/>
+<b>final ObjectMapper mapper = new ObjectMapper();<br/>
+return mapper.convertValue(myObjectFromJson, clazz);</b><br/>
+---MyMyObjectConverter.java and MyMySecondObjectConverter.java<br/>
+public MyObject/MySecondObject convert(LinkedHashMap<String, String> sourceFromJson) {<br/>
+return (MyObject/MySecondObject) MyObjectConverterUtil.copyHashMapContentIntoEquivalentMyObject(sourceFromJson, MyObject/MySecondObject.class);<br/>
 ---The class who displays the value of the 'myString' configuration<br/>
 @Autowired<br/>
 MyConfigurationBean myConf;<br/>
